@@ -10,4 +10,17 @@ const Product = (props) => (
   </div>
 );
 
+Product.propTypes = {
+  imageUrl: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired,
+  price: React.PropTypes.string,
+  quantityAvailable: React.PropTypes.number,
+};
+
+Product.defaultProps = {
+  imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif",
+  price: "0.99$",
+  quantityAvailable: 0,
+};
+
 export default Product;
