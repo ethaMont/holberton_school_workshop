@@ -1,33 +1,31 @@
 import React from 'react';
+import { colors } from '../Styles/constants.js';
+import PrimaryButton from './PrimaryButton.js';
+import Image from './Image.js';
 
-const borderColor = '#e6e3e3';
 const styles = {
   item : {
     borderRadius: '3px',
-    border: '1px solid ' + borderColor,
+    border: '1px solid ' + colors.secondaryGray,
     marginLeft: '10px',
     padding: '0px 10px 0px 10px',
   },
   title: {
     textDecoration: 'underline',
   },
-  button: {
-    background: '#00a0d8',
-    color: 'white',
-    borderRadius: '5px',
-    textTransform: 'uppercase',
-    padding: '10px',
-    textAlign: 'center',
-  }
 };
 
 const Product = (props) => (
   <div style={styles.item}>
     <h3 style={styles.title}>{props.name}</h3>
-    <img src={props.imageUrl} width={120} />
+    <Image
+      imageUrl={props.imageUrl}
+      height={120}
+      width={120} />
     <p>Quantity available: {props.quantityAvailable}</p>
     <p>Price: {props.price}</p>
-    <p>Buy one</p>
+    <PrimaryButton
+      text="Buy now" />
   </div>
 );
 
