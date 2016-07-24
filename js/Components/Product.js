@@ -7,11 +7,19 @@ const styles = {
   item : {
     borderRadius: '3px',
     border: '1px solid ' + colors.secondaryGray,
-    marginLeft: '10px',
+    margin: '10px 10px 0 0',
     padding: '0px 10px 0px 10px',
+    textAlign: 'center',
+    width: '170px',
+    flexGrow: 0,
   },
   title: {
     textDecoration: 'underline',
+    wordBreak: 'normal',
+    width: '100%',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   },
 };
 
