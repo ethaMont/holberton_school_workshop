@@ -1,4 +1,5 @@
 import React from 'react';
+import Product from './Product.js';
 
 const styles = {
   container: {
@@ -11,12 +12,23 @@ class ProductsList extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
     return (
       <div>
         <h1>New products: </h1>
         <div style={styles.container}>
-          {this.props.children}
+          {this.props.products.valueSeq().map(
+            product => <Product
+                        imageUrl={product.get('imageUrl')}
+                        key={product.get('id')}
+                        name={product.get('name')}
+                        price={product.get('price')}
+                        quantityAvailable={product.get('quantityAvailable')} />
+          )}
         </div>
       </div>
     );
@@ -24,10 +36,8 @@ class ProductsList extends React.Component {
 }
 
 ProductsList.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node
-  ]),
+  fetchProducts: React.PropTypes.func,
+  products: React.PropTypes.object,
 };
 
 export default ProductsList;
